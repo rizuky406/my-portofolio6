@@ -1,0 +1,100 @@
+:root{
+  --bg:#02040a;     /* very dark */
+  --deep:#001b33;    /* deep blue */
+  --accent:#0aa8ff;  /* vivid blue */
+  --white:#ffffff;
+  --muted:rgba(255,255,255,0.72);
+  --card:#071426;
+  --glass:rgba(255,255,255,0.03);
+  --container-width:1100px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+  color:var(--white);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  /* deep-sea background: dark -> deep blue with subtle vignette */
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(10,170,255,0.04), transparent 12%),
+    linear-gradient(180deg,#000814 0%, #001328 35%, #001b33 65%, #000814 100%);
+  background-attachment: fixed;
+  position:relative;
+}
+
+.container{width:88%;max-width:var(--container-width);margin:0 auto;padding:28px 0}
+
+/* Header */
+.site-header{position:sticky;top:0;padding:18px 0;z-index:20;background:linear-gradient(180deg,rgba(0,0,0,0.35),transparent);backdrop-filter:blur(6px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--accent),#0077cc);color:var(--white);font-weight:700}
+.name{font-weight:600}
+.main-nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:500}
+.main-nav a:hover{color:var(--white)}
+.badge{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:6px 10px;border-radius:999px;font-weight:600}
+
+/* Hero */
+.hero{padding:80px 0 48px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:center}
+.hero-title{font-size:44px;line-height:1.02;margin:0 0 14px;font-weight:700;color:var(--white)}
+.hero-sub{color:rgba(255,255,255,0.78);font-size:18px;margin:0 0 18px}
+.hero-cta .btn{padding:12px 20px;border-radius:999px;background:linear-gradient(90deg,var(--accent),#209cff);color:var(--white);font-weight:600;text-decoration:none;box-shadow:0 10px 30px rgba(10,168,255,0.12)}
+
+.profile-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 40px rgba(0,0,0,0.6);transform:translateY(0);animation:float 6s ease-in-out infinite}
+.profile-img{width:96px;height:96px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,0.04)}
+.profile-info h3{margin:0;font-size:1.1rem}
+.muted{color:rgba(255,255,255,0.72);font-size:0.95rem;margin:6px 0 0}
+
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+/* Decorative wave behind hero */
+.hero-decor{position:absolute;right:6%;top:-20px;z-index:0;filter:blur(6px);opacity:0.9}
+.profile-card{position:relative;z-index:2}
+
+/* Ocean bubbles */
+.ocean{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bubbles{position:absolute;inset:0}
+.bubbles span{position:absolute;bottom:-10vh;background:rgba(255,255,255,0.04);border-radius:999px;box-shadow:inset -2px -2px 6px rgba(0,0,0,0.3);animation:rise 8s linear infinite}
+.bubbles span:nth-child(1){left:6%;width:8px;height:8px;animation-duration:7s}
+.bubbles span:nth-child(2){left:18%;width:12px;height:12px;animation-duration:9s}
+.bubbles span:nth-child(3){left:30%;width:10px;height:10px;animation-duration:8s}
+.bubbles span:nth-child(4){left:44%;width:14px;height:14px;animation-duration:10s}
+.bubbles span:nth-child(5){left:58%;width:9px;height:9px;animation-duration:7.5s}
+.bubbles span:nth-child(6){left:72%;width:7px;height:7px;animation-duration:8.5s}
+.bubbles span:nth-child(7){left:82%;width:11px;height:11px;animation-duration:9.5s}
+.bubbles span:nth-child(8){left:92%;width:6px;height:6px;animation-duration:7.4s}
+@keyframes rise{to{transform:translateY(-120vh) translateX(18px);opacity:0}}
+
+/* Sections */
+.section{padding:56px 0}
+.section h2{font-size:22px;margin-bottom:18px;color:var(--white)}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.card h3{margin:0 0 8px;color:var(--white)}
+.card p{margin:0;color:rgba(255,255,255,0.72)}
+
+/* Contact */
+.contact-link{color:var(--accent);text-decoration:none;font-weight:600}
+.social-links{display:flex;gap:12px;margin-top:12px}
+.social-links a{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.03);display:inline-flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;box-shadow:0 8px 28px rgba(0,0,0,0.6)}
+.social-links a:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,168,255,0.12);color:var(--accent)}
+
+/* Footer */
+.site-footer{padding:28px 0;text-align:center;color:rgba(255,255,255,0.6);font-size:14px}
+
+/* Responsive */
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr 300px}.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.container{width:94%}.hero-grid{grid-template-columns:1fr;row-gap:20px}.cards{grid-template-columns:1fr}.main-nav{display:none}}
+
+/* small interactions */
+.btn{transition:transform .25s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,168,255,0.18)}
+
+.fade-in{opacity:0;animation:fadeIn .9s ease-out forwards}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.scroll-indicator{position:relative}
